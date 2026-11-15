@@ -9,6 +9,7 @@ os.environ['R2_ACCESS_KEY_ID'] = 'test'
 os.environ['R2_SECRET_ACCESS_KEY'] = 'test'
 os.environ['R2_BUCKET_NAME'] = 'test-bucket'
 os.environ['R2_PUBLIC_URL'] = 'https://cdn.example.invalid'
+os.environ['REGISTRATION_ENABLED'] = 'true'
 
 from app import app, db, limiter
 
