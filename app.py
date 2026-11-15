@@ -1,3 +1,10 @@
+"""
+This is my app
+
+by jonastomren
+"""
+
+
 from datetime import datetime, timezone
 import email
 from flask import Flask, jsonify, render_template, request, redirect, url_for
