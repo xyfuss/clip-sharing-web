@@ -52,7 +52,7 @@ csrf = CSRFProtect(app)
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
-app.wsgi_app = ProxyFix(app.wsgi_app, x_for=1)
+app.wsgi_app = ProxyFix(app.wsgi_app, x_for=3)
 
 limiter = Limiter(
     key_func=get_remote_address,
@@ -269,15 +269,6 @@ def ratelimit_handler(e):
         return render_template('register.html', error=error_message), 429
 
     return jsonify(error=error_message), 429
-
-@app.route('/whoami')
-@login_required
-@limiter.exempt
-def whoami():
-    return jsonify(
-        remote_addr=request.remote_addr,
-        forwarded_to=request.headers.get('X-Forwarded-For'),
-    )
 
 with app.app_context():
     db.create_all()
