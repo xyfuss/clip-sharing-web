@@ -270,5 +270,14 @@ def ratelimit_handler(e):
 
     return jsonify(error=error_message), 429
 
+@app.route('/whoami')
+@login_required
+@limiter.exempt
+def whoami():
+    return jsonify(
+        remote_addr=request.remote_addr,
+        forwarded_to=request.headers.get('X-Forwarded-For'),
+    )
+
 with app.app_context():
     db.create_all()
