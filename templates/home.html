@@ -1,19 +1,6 @@
 {% extends 'base.html' %} {% block title %}XYFUSS{% endblock %} {% block content
 %}
 
-<nav class="navbar">
-  <div class="nav-links">
-    {% if current_user.is_authenticated %}
-    <a href="{{ url_for('clips') }}">My clips</a>
-    <a href="{{ url_for('upload') }}">Upload</a>
-    <a href="{{ url_for('logout') }}">Log out</a>
-    {% else %}
-    <a href="{{ url_for('login') }}">Log in</a>
-    <a href="{{ url_for('register') }}" class="btn-primary">Register</a>
-    {% endif %}
-  </div>
-</nav>
-
 <section class="hero">
   {% if current_user.is_authenticated %}
   <h1>Welcome back, {{ current_user.username }}!</h1>
