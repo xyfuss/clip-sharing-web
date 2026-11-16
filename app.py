@@ -6,10 +6,9 @@ by jonastomren
 
 
 from datetime import datetime, timezone
-import email
 from flask import Flask, jsonify, render_template, request, redirect, url_for
 from flask_migrate import Migrate
-from flask_sqlalchemy import SQLAlchemy, extension
+from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required, current_user
 from flask_wtf import CSRFProtect
 from flask_limiter import Limiter
@@ -21,7 +20,6 @@ import boto3
 import uuid
 import re
 from botocore.client import Config, ClientError
-from werkzeug.utils import secure_filename
 from werkzeug.middleware.proxy_fix import ProxyFix
 
 load_dotenv()
